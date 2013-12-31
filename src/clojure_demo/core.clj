@@ -30,7 +30,7 @@
 
 ; a vector is an ordered collection, allow for random access, etc it is written
 ; like this [:a :b] alternatively we can use a list, lists look like this '(:a :b)
-; or a set like this #{:a :b} these are the basic clojure data types
+; or a set like this #{:a :b} these are the basic clojure data types (in addition to map above)
 ; this is our stand in for a non-relational db
 (def contacts [phil-contact dance-commander-contact some-guy-contact])
 
