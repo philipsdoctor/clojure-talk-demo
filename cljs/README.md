@@ -1,13 +1,23 @@
 # cljs
 
-A Clojure library designed to ... well, that part is up to you.
+A demo of what it's like to write some clojurescript
+
 
 ## Usage
 
-FIXME
+To run the server
+
+    lein ring server
+
+To build clojurescript
+
+    lein cljsbuild once
+
+To run the repl
+    lein trampoline cljsbuild repl-listen
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014
 
 Distributed under the Eclipse Public License, the same as Clojure.
