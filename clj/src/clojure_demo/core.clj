@@ -78,9 +78,20 @@
 ; so no, not really, we still have to iterate over the entire collection
 ; just sometimes we deal with nil
 
-; how else can we handle iteration?
-(defn gmail? [email]
+; try it from a different direction...
+(defn gmail-contact?
+  [{email :email}]
   (.contains email "@gmail.com"))
+
+(filter gmail-contact? contacts)
+; So here we only have one iteration, but the output is a collection of contacts, rather than just the e-mail
+; in practice, this is probably the solution I'd pick, and then deal with destructuring the data again in my
+; next function...
+
+(map #(str "Dear " (:email %) " please read our e-mail.") (filter gmail-contact? contacts))
+
+; however, it's worth looking at,
+; how else can we handle iteration?
 
 ; let's take a look at loop ... recur, it's a tail call optimized form that makes recursive calls simple
 (loop [i 5]
@@ -89,6 +100,8 @@
     (recur (- i 1))))
 
 ; so we can do this, although we're building an intermediate collection here
+(defn gmail? [email]
+  (.contains email "@gmail.com"))
 
 (loop [[contact & remaining] contacts contacts-to-email []]
   (let [email (:email contact)
